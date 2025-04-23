@@ -50,10 +50,6 @@ class MainPage(BasePage):
     def click_on_button_login(self):
         self.click_element(PersonalAccLocators.PERSONAL_ACCOUNT_BUTTON)
 
-    @allure.step('Нажимаем кнопку «Войти»')
-    def click_login_button(self):
-        self.click_element(PersonalAccLocators.LOGIN_BUTTON)
-        self.wait_for_element_to_be_clickable(PersonalAccLocators.PROFILE_BUTTON)
 
     @allure.step('Добавить ингредиент')
     def add_filling_to_order(self):
@@ -68,11 +64,6 @@ class MainPage(BasePage):
     def click_on_button_make_order(self):
         self.click_element(MainPageLocators.MAKE_ORDER_BUTTON)
 
-    #@allure.step('Проверить отображение окна о создании заказа и получить номера заказов')
-    #def check_and_get_order_number(self):
-        #self.wait_for_element(MainPageLocators.ORDER_NUMBER)
-        #number_today = self.find_element(MainPageLocators.ORDER_NUMBER)
-        #return int(number_today.text)
 
     @allure.step('Кликнуть на кнопку закрытия окна о создании заказа')
     def click_on_button_close(self):

@@ -23,10 +23,6 @@ class AccountPage(BasePage):
         self.click_element(PersonalAccLocators.PASSWORD_FIELD)
         self.set_value(PersonalAccLocators.PASSWORD_FIELD,TestData.USER_PASSWORD)
 
-    #@allure.step('Заполняем поле "Имя"')
-    #def set_name_field(self, user_name):
-        #self.click_element(PersonalAccLocators.USER_NAME_INPUT)
-        #self.set_value(PersonalAccLocators.USER_NAME_INPUT, user_name)
 
     @allure.step('Ждем загрузки кнопки "Зарегистрироваться"')
     def wait_visibility_of_button_register(self):
@@ -46,11 +42,6 @@ class AccountPage(BasePage):
         self.wait_for_element(PersonalAccLocators.ORDER_HISTORY_BUTTON)
         self.check_element_display(PersonalAccLocators.ORDER_HISTORY_BUTTON)
 
-    #@allure.step("Получить номер последнего заказа")
-    #def get_order_number_history(self):
-        #self.wait_for_element(PersonalAccLocators.CARD_ORDER)
-        #number = self.find_element(PersonalAccLocators.CARD_ORDER)
-        #return int(number.text)
 
     @allure.step('Проверяем активацию кнопки "История заказов"')
     def check_on_order_history(self):
