@@ -28,8 +28,7 @@ class PersonalAccLocators:
     LOGIN_BUTTON = (By.XPATH, ".//button[text()='Войти']")
     FORGOT_PASSWORD = (By.XPATH, '//a[contains(@href, "/forgot-password")]')
     PROFILE_BUTTON = (By.LINK_TEXT, 'Профиль')
-    ORDER_HISTORY_BUTTON = (By.LINK_TEXT, 'История заказов')
-    ACTIV_HISTORY_BUTTON = (By.XPATH, '//ul/li[2]/a[contains(@class, "Account_link_active")]')
+    ORDER_HISTORY_BUTTON = (By.XPATH, "//a[text()='История заказов']")
     CARD_ORDER = (By.XPATH, '//*[contains(@class, "OrderHistory_listItem")]//h2')
     LOGOUT_BUTTON = (By.XPATH, ".//button[text()='Выход']")
 
@@ -38,7 +37,6 @@ class RecoveryPasswordLocators:
 
     INPUT_EMAIL = (By.XPATH, '//label[text()="Email"]/following-sibling::input')
     RECOVERY_BUTTON = (By.XPATH, '//button[text()="Восстановить"]')
-    #INPUT_PASSWORD = (By.CSS_SELECTOR, '.input_type_password .input__textfield')
     INPUT_ACTIVE = (By.CSS_SELECTOR, '.input.input_status_active')
     SHOW_PASSWORD_BUTTON = (By.XPATH, '//div[contains(@class,"icon-action")]')
     SAVE_BUTTON = (By.XPATH, '//button[text()="Сохранить"]')

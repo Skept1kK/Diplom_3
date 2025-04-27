@@ -2,7 +2,7 @@ import allure
 
 from locator import *
 from page.base_page import BasePage
-import time
+from selenium.webdriver.support.ui import WebDriverWait
 
 class MainPage(BasePage):
 
@@ -40,9 +40,10 @@ class MainPage(BasePage):
     def close_window(self):
         self.wait_for_element(MainPageLocators.CLOSE_WINDOW)
 
-        # Проверяем, если текст элемента равен '9999', повторяем попытку
-        while self.get_element_text(MainPageLocators.ORDER_NUMBER) == '9999':
-            time.sleep(0.5)
+        # Ждем, пока текст элемента не станет отличаться от '9999'
+        WebDriverWait(self.driver, 10).until(
+            lambda driver: self.get_element_text(MainPageLocators.ORDER_NUMBER) != '9999'
+        )
 
         self.click_element(MainPageLocators.CLOSE_WINDOW)
 

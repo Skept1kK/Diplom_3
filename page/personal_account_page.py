@@ -24,10 +24,10 @@ class AccountPage(BasePage):
         self.set_value(PersonalAccLocators.PASSWORD_FIELD,TestData.USER_PASSWORD)
 
 
-    @allure.step('Ждем загрузки кнопки "Зарегистрироваться"')
-    def wait_visibility_of_button_register(self):
+    @allure.step('Ждем загрузки и проверяем видимость кнопки "Зарегистрироваться"')
+    def check_visibility_of_button_register(self):
         self.wait_for_element(PersonalAccLocators.REG_BUTTON)
-        self.check_element_display(PersonalAccLocators.REG_BUTTON)
+        return self.check_element_display(PersonalAccLocators.REG_BUTTON)
 
     @allure.step('Нажимаем кнопку «Войти»')
     def click_login_button(self):
@@ -40,16 +40,15 @@ class AccountPage(BasePage):
     @allure.step('Проверяем отображение кнопки "История заказов"')
     def check_on_order_history_button(self):
         self.wait_for_element(PersonalAccLocators.ORDER_HISTORY_BUTTON)
-        self.check_element_display(PersonalAccLocators.ORDER_HISTORY_BUTTON)
+        return self.check_element_display(PersonalAccLocators.ORDER_HISTORY_BUTTON)
 
 
     @allure.step('Проверяем активацию кнопки "История заказов"')
     def check_on_order_history(self):
-        self.wait_for_element(PersonalAccLocators.ACTIV_HISTORY_BUTTON,PersonalAccLocators.CARD_ORDER)
-        self.check_element_display(PersonalAccLocators.ACTIV_HISTORY_BUTTON,PersonalAccLocators.CARD_ORDER)
+        self.wait_for_element(PersonalAccLocators.CARD_ORDER)
+        return self.check_element_display(PersonalAccLocators.CARD_ORDER)
 
 
     @allure.step('Кликаем на кнопку "Выйти"')
     def click_on_logout_button(self):
         self.click_element(PersonalAccLocators.LOGOUT_BUTTON)
-

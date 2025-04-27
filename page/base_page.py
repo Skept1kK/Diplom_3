@@ -3,7 +3,6 @@ import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
-import time
 
 class BasePage:
     def __init__(self, driver):
@@ -21,7 +20,6 @@ class BasePage:
 
     @allure.step('Кликаем по элементу')
     def click_element(self, locator):
-        time.sleep(1)
         self.find_element(locator).click()
 
     @allure.step('Вводим данные в поле')

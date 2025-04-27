@@ -1,6 +1,4 @@
 import allure
-
-from conftest import *
 from page.main_page import MainPage
 from page.order_feed_page import OrderPage
 from page.personal_account_page import AccountPage
@@ -14,7 +12,7 @@ class TestFeedPage:
         order_feed_page = OrderPage(driver)
         main_page.click_feed_button()
         order_feed_page.click_order()
-        assert order_feed_page.check_open_window_with_order_details
+        assert order_feed_page.check_open_window_with_order_details()
 
 
 

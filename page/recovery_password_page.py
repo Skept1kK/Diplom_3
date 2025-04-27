@@ -13,6 +13,7 @@ class RecoveryPage(BasePage):
 
     @allure.step('Проверяем отображение поля email')
     def check_displaying_of_input_email(self):
+        self.wait_for_element(RecoveryPasswordLocators.INPUT_EMAIL)
         return self.check_element_display(RecoveryPasswordLocators.INPUT_EMAIL)
 
     @allure.step('Вводим емейл в поле для восстановления пароля')
@@ -26,6 +27,7 @@ class RecoveryPage(BasePage):
 
     @allure.step('Проверяем отображение кнопки сохранить')
     def check_displaying_of_save_button(self):
+        self.wait_for_element(RecoveryPasswordLocators.SAVE_BUTTON)
         return self.check_element_display(RecoveryPasswordLocators.SAVE_BUTTON)
 
     @allure.step('Кликаем на иконку глаза в поле ввода пароля')
@@ -35,4 +37,5 @@ class RecoveryPage(BasePage):
 
     @allure.step('Найти активное поле Пароль')
     def find_input_active(self):
-        return self.wait_for_element(RecoveryPasswordLocators.INPUT_ACTIVE)
+        self.wait_for_element(RecoveryPasswordLocators.INPUT_ACTIVE)
+        return self.check_element_display(RecoveryPasswordLocators.INPUT_ACTIVE)

@@ -1,10 +1,7 @@
 import allure
-
-from conftest import *
 from page.main_page import MainPage
 from page.personal_account_page import AccountPage
 from page.order_feed_page import OrderPage
-
 
 class TestMainPage:
 
@@ -58,6 +55,6 @@ class TestMainPage:
         personal_account_page.click_login_button()
         main_page.add_filling_to_order()
         main_page.click_on_button_make_order()
-        assert main_page.check_displaying_details_of_order
+        assert main_page.check_displaying_details_of_order()
 
 

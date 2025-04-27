@@ -13,7 +13,7 @@ def generate_data():
     return {
         'name': fake.name(),
         'password': fake.password(length=10, special_chars=True, digits=True),
-        'email': fake.email()
+        'email': f"{fake.user_name()}@mail.ru"
     }
 
 @allure.step("Создание email")

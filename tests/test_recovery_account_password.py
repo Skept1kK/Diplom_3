@@ -1,5 +1,4 @@
 import allure
-from conftest import *
 from page.main_page import MainPage
 from page.recovery_password_page import RecoveryPage
 
@@ -23,7 +22,7 @@ class TestPasswdRecoveryPage:
         recovery_password_page.click_password_reset_link()
         recovery_password_page.set_email_for_reset_password()
         recovery_password_page.click_on_recovery_button()
-        assert recovery_password_page.check_displaying_of_save_button
+        assert recovery_password_page.check_displaying_of_save_button()
 
 
     @allure.title('Проверка активации поля ввода пароля')
@@ -35,5 +34,5 @@ class TestPasswdRecoveryPage:
         recovery_password_page.set_email_for_reset_password()
         recovery_password_page.click_on_recovery_button()
         recovery_password_page.click_on_eye_icon()
-        assert recovery_password_page.find_input_active
+        assert recovery_password_page.find_input_active()
 

@@ -3,7 +3,7 @@ import allure
 from locator import *
 from page.base_page import BasePage
 from helper import *
-import time
+from selenium.webdriver.support.ui import WebDriverWait
 
 class OrderPage(BasePage):
     @allure.step('Нажимаем на заказ в списке Лента заказов')
@@ -78,10 +78,12 @@ class OrderPage(BasePage):
     @allure.step('Получаем номер заказа')
     def fetch_order_id(self):
         self.wait_for_element(MainPageLocators.ORDER_IDENTIFICATE)
-        order_id = self.get_element_text(MainPageLocators.ORDER_NUMBER)
 
-        # Проверяем, если order_id равно '9999', повторяем попытку
-        while order_id == '9999':
-            time.sleep(0.5)
-            order_id = self.get_element_text(MainPageLocators.ORDER_NUMBER)
+        # Ждем, пока текст элемента не станет отличаться от '9999'
+        WebDriverWait(self.driver, 10).until(
+            lambda driver: self.get_element_text(MainPageLocators.ORDER_NUMBER) != '9999'
+        )
+
+        order_id = self.get_element_text(MainPageLocators.ORDER_NUMBER)
         return int(order_id)
+

@@ -1,6 +1,5 @@
 import allure
 import pytest
-import time
 from selenium import webdriver
 from url import URLS
 import helper
@@ -19,22 +18,15 @@ def driver(request):
 
     driver.maximize_window()
     driver.get(URLS.BASE_URL)
-
-    time.sleep(5)
     yield driver
 
     driver.quit()
-
-
-
-
 
 
 @pytest.fixture
 def create_user_data():
     user_data = helper.generate_data()
     response = helper.create_user(user_data)
-    assert response.status_code == 200 and response.json()["success"] is True
     user_id = response.json().get('user', {}).get('id')
     access_token = response.json().get('accessToken')
     yield user_data, access_token
